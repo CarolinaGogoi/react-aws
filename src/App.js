@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-         hi There Jayanta
+         AWS CICD Test
       </header>
     </div>
   );
