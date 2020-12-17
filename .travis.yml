@@ -6,7 +6,7 @@ before_install:
   - docker build -t codergogoi/react_aws -f Dockerfile.dev .
 
 script:
-  - docker run codergogoi/react_aws npm run test -- --coverage
+  - docker run -e CI=true codergogoi/react_aws npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
