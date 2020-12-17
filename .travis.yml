@@ -8,16 +8,16 @@ before_install:
 script:
   - docker run codergogoi/react_aws npm run test -- --coverage
 
-# deploy:
-#   provider: elasticbeanstalk
-#   region: ap-south-1
-#   app: react_aws
-#   env: "ReactAws-env"
-#   bucket_name: "elasticbeanstalk-ap-south-1-479812415175"
-#   bucket_path: "react_aws"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: "$AWS_SECRET_KEY"
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: react_aws
+  env: "ReactAws-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-479812415175"
+  bucket_path: "react_aws"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
  
