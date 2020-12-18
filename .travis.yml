@@ -3,18 +3,19 @@ services:
   - docker
 
 before_install:
-  - docker build -t codergogoi/react_aws -f Dockerfile.dev .
+  - docker build -t codergogoi/react_cicd -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true codergogoi/react_aws npm run test -- --coverage
+  - docker run -e CI=true codergogoi/react_cicd npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
+  edge: true
   region: ap-south-1
-  app: react_docker
-  env: "ReactDocker-env"
+  app: react_cicd
+  env: "ReactCicd-env"
   bucket_name: "elasticbeanstalk-ap-south-1-479812415175"
-  bucket_path: "react_docker"
+  bucket_path: "react_cicd"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
